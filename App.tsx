@@ -4,9 +4,8 @@ import { StyleSheet} from 'react-native';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { THEME } from './src/styles/theme';
 
-import { Signin } from './src/screens/Signin';
+import { Routes } from './src/routes/Index';
 import { Loading } from './src/components/Loading';
-
 
 export default function App() {
   const [fontsLoagded] = useFonts({Roboto_400Regular, Roboto_700Bold});
@@ -17,7 +16,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoagded ? <Signin/> : <Loading/>}
+      {fontsLoagded ? <Routes/> : <Loading/>}
     </NativeBaseProvider>
   );
 }
