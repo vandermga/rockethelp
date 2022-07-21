@@ -12,7 +12,6 @@ export function AppRoutes(){
             <Screen name='home' component={Home} />
             <Screen name='new' component={Register} />
             <Screen name='details' component={Details} />
-
         </Navigator>
     )
 }

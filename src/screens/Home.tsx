@@ -68,11 +68,11 @@ export function Home() {
                 justifyContent="space-between"
                 alignItems="center"
                 bg="gray.600"
-                pt={12}
+                pt={9}
                 pb={5}
                 px={6}
             >
-                <Logo />
+                <Logo height={50} width={300}/>
                 <IconButton
                     icon={<SignOut size={26} color={colors.gray[300]} />}
                     onPress={handleLogout}
