@@ -13,8 +13,6 @@ import { ChatTeardropText } from 'phosphor-react-native';
 import { dateFormat } from '../utils/FirestoreDateFormat';
 import { Loading } from '../components/Loading';
 
-
-
 export function Home() {
     const [isLoading, setIsLoading] = useState(true);
     const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open');
@@ -40,6 +38,7 @@ export function Home() {
 
     useEffect(() => {
         setIsLoading(true);
+
         const subscriber =
             firestore()
                 .collection('orders')
@@ -47,6 +46,7 @@ export function Home() {
                 .onSnapshot(snapshot => {
                     const data = snapshot.docs.map(doc => {
                         const { patrimony, description, status, created_at } = doc.data();
+
                         return {
                             id: doc.id,
                             patrimony,
@@ -54,12 +54,12 @@ export function Home() {
                             status,
                             when: dateFormat(created_at)
                         }
-                    })
+                    });
                     setOrders(data);
                     setIsLoading(false);
                 });
         return subscriber;
-    }, []);
+    }, [statusSelected]);
 
     return (
         <VStack flex={1} pb={6} bg={"gray.700"}>
@@ -97,7 +97,7 @@ export function Home() {
                     />
                     <Filter
                         type="closed"
-                        title='Finalizados'
+                        title='Finalizadas'
                         onPress={() => setStatusSelected('closed')}
                         isActive={statusSelected === 'closed'}
                     />

@@ -1,11 +1,12 @@
+import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 import { Box, Circle, HStack, Text, useTheme, VStack, Pressable, IPressableProps } from 'native-base';
 import { ClockAfternoon, Hourglass, CircleWavyCheck } from 'phosphor-react-native';
 
 export type OrderProps = {
     id: string;
     patrimony: string;
-    when: string;
     status: 'open' | 'closed';
+    when: string;
 }
 
 type Props = IPressableProps & {
@@ -33,7 +34,7 @@ export function Order({ data, ...rest }: Props) {
                     <HStack alignItems="center">
                         <ClockAfternoon size={15} color={colors.gray[300]} />
                         <Text color="gray.200" fontSize="xs" ml={1}>
-                            {data.when}
+                            data
                         </Text>
                     </HStack>
                 </VStack>
