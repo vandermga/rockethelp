@@ -43,12 +43,12 @@ export function Register() {
     <VStack flex={1} p={6} bg="gray.600">
       <Header title="Nova solicitação" />
       <Input
-        placeholder="Descrição do patrônio"
+        placeholder="Descrição do patrimônio"
         mt={4}
         onChangeText={setPatrimony}
       />
       <Input
-        placeholder="Descrição do patrônio"
+        placeholder="Descrição do patrimônio"
         flex={1}
         mt={5}
         multiline
